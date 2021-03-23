@@ -22,4 +22,34 @@ import datetime
 def home(request):
     context = {}
 
-    return render(request, 'home.html', context)
+    return render(request, 'Website/home.html', context)
+
+
+def about(request):
+    context = {}
+
+    return render(request, 'Website/about.html', context)
+
+
+def events(request):
+    context = {}
+
+    return render(request, 'Website/events.html', context)
+
+
+def teachers(request):
+    context = {}
+
+    return render(request, 'Website/teachers.html', context)
+
+
+def blog(request):
+    context = {}
+
+    return render(request, 'Website/blog.html', context)
+
+
+def contact(request):
+    context = {}
+
+    return render(request, 'Website/contact.html', context)

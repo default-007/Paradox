@@ -1,0 +1,354 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<!-- Main page content-->
+<div class="container mt-n10">
+  <!-- Example Colored Cards for Dashboard Demo-->
+  <div class="row">
+    <div class="col-xxl-3 col-lg-6">
+      <div class="card bg-danger text-white mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="mr-3">
+              <div class="text-white-75 small">Expenses (Monthly)</div>
+              <div class="text-lg font-weight-bold">ksh 40,000</div>
+            </div>
+            <i class="feather-xl text-white-50" data-feather="calendar"></i>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="#">View Report</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+      <div class="card bg-success text-white mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="mr-3">
+              <div class="text-white-75 small">Revenue (Monthly)</div>
+              <div class="text-lg font-weight-bold">Ksh 215,000</div>
+            </div>
+            <i class="feather-xl text-white-50" data-feather="dollar-sign"></i>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="#">View Report</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+      <div class="card bg-secondary text-white mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="mr-3">
+              <div class="text-white-75 small">Students</div>
+              <div class="text-lg font-weight-bold">24</div>
+            </div>
+            <i class="feather-xl text-white-50" data-feather="check-square"></i>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="#">View Students</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-lg-6">
+      <div class="card bg-warning text-white mb-4">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="mr-3">
+              <div class="text-white-75 small">Staff</div>
+              <div class="text-lg font-weight-bold">17</div>
+            </div>
+            <i class="feather-xl text-white-50" data-feather="message-circle"></i>
+          </div>
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+          <a class="small text-white stretched-link" href="#">View Employees</a>
+          <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xxl-4 col-xl-12 mb-4">
+      <div class="card h-100">
+        <div class="card-body h-100 d-flex flex-column justify-content-center py-5 py-xl-4">
+          <div class="row align-items-center">
+            <div class="col-xl-8 col-xxl-12">
+              <div class="text-center px-4 mb-4 mb-xl-0 mb-xxl-4">
+                <h1 class="text-primary">Welcome Back!</h1>
+                <p class="text-gray-700 mb-0">It&apos;s time to get started! View new
+                  opportunities now, or continue on your previous work.</p>
+              </div>
+            </div>
+            <div class="col-xl-4 col-xxl-12 text-center"><img class="img-fluid"
+                src="{% static 'Admin/assets/img/freepik/at-work-pana.svg'%}" style="max-width: 26rem;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-3">
+      <!-- Bar chart example-->
+      <div class="card h-100">
+        <div class="card-header">Expenses Reporting</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          <div class="chart-bar"><canvas id="myBarChart" width="100%" height="30"></canvas></div>
+        </div>
+        <div class="card-footer">
+          <a class="text-xs d-flex align-items-center justify-content-between" href="#!">
+            View More Reports
+            <i class="fas fa-long-arrow-alt-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 mb-3">
+      <!-- Pie chart example-->
+      <div class="card h-100 ">
+        <div class="card-header">School Population</div>
+        <div class="card-body">
+          <div class="chart-pie mb-4"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+          <div class="list-group list-group-flush">
+            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+              <div class="mr-3">
+                <i class="fas fa-circle fa-sm mr-1 text-blue"></i>
+                Students
+              </div>
+              <div class="font-weight-500 text-dark">55%</div>
+            </div>
+            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+              <div class="mr-3">
+                <i class="fas fa-circle fa-sm mr-1 text-purple"></i>
+                Teachers
+              </div>
+              <div class="font-weight-500 text-dark">15%</div>
+            </div>
+            <div class="list-group-item d-flex align-items-center justify-content-between small px-0 py-2">
+              <div class="mr-3">
+                <i class="fas fa-circle fa-sm mr-1 text-green"></i>
+                Staff
+              </div>
+              <div class="font-weight-500 text-dark">30%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example Charts for Dashboard Demo-->
+  <div class="row">
+    <div class="col-xl-6 mb-4">
+      <div class="card card-header-actions h-100">
+        <div class="card-header">
+          Earnings Breakdown
+          <div class="dropdown no-caret">
+            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="areaChartDropdownExample"
+              type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500"
+                data-feather="more-vertical"></i></button>
+            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up"
+              aria-labelledby="areaChartDropdownExample">
+              <a class="dropdown-item" href="#!">Last 12 Months</a>
+              <a class="dropdown-item" href="#!">Last 30 Days</a>
+              <a class="dropdown-item" href="#!">Last 7 Days</a>
+              <a class="dropdown-item" href="#!">This Month</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#!">Custom Range</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-area"><canvas id="myAreaChart" width="100%" height="30"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-6 mb-4">
+      <div class="card card-header-actions h-100">
+        <div class="card-header">
+          Monthly Revenue
+          <div class="dropdown no-caret">
+            <button class="btn btn-transparent-dark btn-icon dropdown-toggle" id="areaChartDropdownExample"
+              type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="text-gray-500"
+                data-feather="more-vertical"></i></button>
+            <div class="dropdown-menu dropdown-menu-right animated--fade-in-up"
+              aria-labelledby="areaChartDropdownExample">
+              <a class="dropdown-item" href="#!">Last 12 Months</a>
+              <a class="dropdown-item" href="#!">Last 30 Days</a>
+              <a class="dropdown-item" href="#!">Last 7 Days</a>
+              <a class="dropdown-item" href="#!">This Month</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#!">Custom Range</a>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-bar"><canvas id="myBarChart" width="100%" height="30"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Example DataTable for Dashboard Demo-->
+  <div class="card mb-4">
+    <div class="card-header">Staff Management</div>
+    <div class="card-body">
+      <div class="datatable">
+        <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </tfoot>
+          <tbody>
+            <tr>
+              <td>Tiger Nixon</td>
+              <td>Teacher</td>
+              <td>61</td>
+              <td>2011/04/25</td>
+              <td>$320,800</td>
+              <td>
+                <div class="badge badge-primary badge-pill">Full-time</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Garrett Winters</td>
+              <td>Accountant</td>
+              <td>63</td>
+              <td>2011/07/25</td>
+              <td>$170,750</td>
+              <td>
+                <div class="badge badge-warning badge-pill">Pending</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Ashton Cox</td>
+              <td>Head Teacher</td>
+              <td>66</td>
+              <td>2009/01/12</td>
+              <td>$86,000</td>
+              <td>
+                <div class="badge badge-secondary badge-pill">Part-time</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Cedric Kelly</td>
+              <td>Assistant Secretary</td>
+              <td>22</td>
+              <td>2012/03/29</td>
+              <td>$433,060</td>
+              <td>
+                <div class="badge badge-info badge-pill">Contract</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Airi Satou</td>
+              <td>Accountant</td>
+              <td>33</td>
+              <td>2008/11/28</td>
+              <td>$162,700</td>
+              <td>
+                <div class="badge badge-primary badge-pill">Full-time</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Brielle Williamson</td>
+              <td>Teacher</td>
+              <td>61</td>
+              <td>2012/12/02</td>
+              <td>$372,000</td>
+              <td>
+                <div class="badge badge-primary badge-pill">Full-time</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>Herrod Chandler</td>
+              <td>Teacher</td>
+              <td>59</td>
+              <td>2012/08/06</td>
+              <td>$137,500</td>
+              <td>
+                <div class="badge badge-primary badge-pill">Full-time</div>
+              </td>
+              <td>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark mr-2"><i
+                    data-feather="more-vertical"></i></button>
+                <button class="btn btn-datatable btn-icon btn-transparent-dark"><i data-feather="trash-2"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Progress card example-->
+  <div class="card bg-primary border-0">
+    <div class="card-body">
+      <h5 class="text-white-50">Budget Overview</h5>
+      <div class="mb-4">
+        <span class="display-4 text-white">Ksh 48k</span>
+        <span class="text-white-50">per year</span>
+      </div>
+      <div class="progress bg-white-25 rounded-pill" style="height: 0.5rem;">
+        <div class="progress-bar bg-white w-75 rounded-pill" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+          aria-valuemax="100"></div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

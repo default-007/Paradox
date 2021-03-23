@@ -5,9 +5,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', views.ad_dash, name='ad_dash'),
-    path('tc', views.tc_dash, name='tc_dash'),
-    path('pt', views.pt_dash, name='pt_dash'),
+    path('', views.AdminDashView.as_view(), name='ad_dash'),
+    path('tc', views.TeacherDashView.as_view(), name='tc_dash'),
+    path('pt', views.ParentDashView.as_view(), name='pt_dash'),
 ]
 
 if settings.DEBUG:

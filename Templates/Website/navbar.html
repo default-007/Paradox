@@ -100,10 +100,10 @@
                   <!--About Menu Start-->
                   <li class="menu-item-has-children"> <a href="#">About Us</a>
                     <ul class="sub-menu">
-                      <li> <a href="#"> Our Story</a></li>
+                      <li> <a href="{% url 'about'%}"> Our Story</a></li>
                       <li> <a href="#"> Our Approach</a></li>
                       <li> <a href="#"> Careers</a></li>
-                      <li> <a href="about.html"> Staff </a></li>
+                      <li> <a href="{% url 'teachers'%}"> Staff </a></li>
                     </ul>
                   </li>
                   <!--About Menu End-->
@@ -115,7 +115,7 @@
                   <!--Courses Menu End-->
 
                   <!--Events Menu Start-->
-                  <li><a href="#">Events</a></li>
+                  <li><a href="{% url 'events'%}">Events</a></li>
                   <!--Events Menu End-->
 
                   <!-- Drop Down -->
@@ -136,12 +136,12 @@
                   <!--End Icons -->
 
                   <!--blog Menu Start-->
-                  <li class="menu-item-has-children"> <a href="#">News</a>
+                  <li class="menu-item-has-children"> <a href="{% url 'blog' %}">News</a>
                   </li>
                   <!--blog Menu End-->
 
                   <!--Contact Menu Start-->
-                  <li> <a href="contact.html">Contact</a></li>
+                  <li> <a href="{% url 'contact'%}">Contact</a></li>
                   <!--Contact Menu End-->
                 </ul>
               </nav>
